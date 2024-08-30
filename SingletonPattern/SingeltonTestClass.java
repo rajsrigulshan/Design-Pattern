@@ -1,4 +1,4 @@
-package SingeltonObjectCreation;
+package SingletonPattern;
 import java.io.Serializable;
 
 // Lazy loading singleTon Pattern

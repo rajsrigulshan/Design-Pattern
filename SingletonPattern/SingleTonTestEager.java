@@ -1,4 +1,4 @@
-package SingeltonObjectCreation;
+package SingletonPattern;
 
 public class SingleTonTestEager {
     private SingleTonTestEager(){

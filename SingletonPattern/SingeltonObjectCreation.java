@@ -1,4 +1,4 @@
-package SingeltonObjectCreation;
+package SingletonPattern;
 
 import java.lang.reflect.Constructor;
 import java.lang.reflect.InvocationTargetException;
@@ -96,58 +96,57 @@ public class SingeltonObjectCreation {
 
         //testing through the serialization and de-serialization.
 
-        // SingeltonTestClass s1=SingeltonTestClass.getSingeltonTestClassObj();
-        // System.out.println(s1.hashCode()+"  first object created...");
+        SingeltonTestClass s1=SingeltonTestClass.getSingeltonTestClassObj();
+        System.out.println(s1.hashCode()+"  first object created...");
 
-        // try {
-        //     ObjectOutputStream oos=new ObjectOutputStream(new FileOutputStream("output.ser"));
-        //     oos.writeObject(s1);
-        //     s1.printObj();
-        //     System.out.println("Object is serialized...");
-        // } catch (FileNotFoundException e) {
-        //     e.printStackTrace();
-        // } catch (IOException e) {
-        //     e.printStackTrace();
-        // }
+        try {
+            ObjectOutputStream oos=new ObjectOutputStream(new FileOutputStream("SingletonPattern/output.ser"));
+            oos.writeObject(s1);
+            s1.printObj();
+            System.out.println("Object is serialized...");
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
 
-        // try {
-        //     FileInputStream file=new FileInputStream("output.ser");
-        //     try (ObjectInputStream deszObj=new ObjectInputStream(file)){
+        try {
+            FileInputStream file=new FileInputStream("SingletonPattern/output.ser");
+            try (ObjectInputStream deszObj=new ObjectInputStream(file)){
                 
-        //         try {
-        //             SingeltonTestClass s2=(SingeltonTestClass) deszObj.readObject();
-        //             System.out.println("object is de-serialized...");
-        //             System.out.println(s2.hashCode()+" Second object is created...");
-        //             System.out.println(s2.hashCode());
-        //             s2.printObj();
+                try {
+                    SingeltonTestClass s2=(SingeltonTestClass) deszObj.readObject();
+                    System.out.println("object is de-serialized...");
+                    System.out.println(s2.hashCode()+" Second object is created...");
+                    s2.printObj();
 
-        //         } catch (ClassNotFoundException e) {
-        //             e.printStackTrace();
-        //         }
-        //     } catch (IOException e) {
-        //         e.printStackTrace();
-        //     }
-        // } catch (FileNotFoundException e) {
-        //     e.printStackTrace();
-        // }
+                } catch (ClassNotFoundException e) {
+                    e.printStackTrace();
+                }
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        }
 
 
 
         //Testing Cloning process to break singleton pattern.
 
 
-        SingeltonTestClass s1=SingeltonTestClass.getSingeltonTestClassObj();
-        System.out.println(s1.hashCode());
-        System.out.println("first object created...");
+        // SingeltonTestClass s1=SingeltonTestClass.getSingeltonTestClassObj();
+        // System.out.println(s1.hashCode());
+        // System.out.println("first object created...");
 
-        try {
-            SingeltonTestClass s2=(SingeltonTestClass)s1.clone();
-            System.out.println("first object cloned...");
-            System.out.println(s2.hashCode());
-            s2.printObj();
-        } catch (CloneNotSupportedException e) {
-            e.printStackTrace();
-        }
+        // try {
+        //     SingeltonTestClass s2=(SingeltonTestClass)s1.clone();
+        //     System.out.println("first object cloned...");
+        //     System.out.println(s2.hashCode());
+        //     s2.printObj();
+        // } catch (CloneNotSupportedException e) {
+        //     e.printStackTrace();
+        // }
         
         
         
